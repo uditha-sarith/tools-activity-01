@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
 
-// Middleware to parse URL-encoded bodies
+
 app.use(express.urlencoded({ extended: true }));
 
 let storedName = ""; 
 
-// පොදු CSS styles ටික (දෙපැත්තටම පාවිච්චි වෙන)
+
 const commonCSS = `
     <style>
         body {
@@ -28,7 +28,7 @@ const commonCSS = `
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         h2 {
-            color: #a37bff; /* ලා දම් පාට */
+            color: #a37bff;
             font-size: 36px;
             margin-top: 0;
             margin-bottom: 10px;
@@ -82,7 +82,7 @@ const commonCSS = `
     </style>
 `;
 
-// GET Request - Welcome Page එක
+// GET Request
 app.get('/', (req, res) => {
     res.send(`
         <!DOCTYPE html>
@@ -105,13 +105,13 @@ app.get('/', (req, res) => {
     `);
 });
 
-// POST Request - Data එක අරන් variable එකට දානවා
+// POST Request
 app.post('/submit', (req, res) => {
     storedName = req.body.userName; 
     res.redirect('/greeting'); 
 });
 
-// GET Request - Greeting Page එක
+// GET Request
 app.get('/greeting', (req, res) => {
     res.send(`
         <!DOCTYPE html>
